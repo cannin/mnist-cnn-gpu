@@ -11,6 +11,10 @@ from tensorflow.keras import backend as K
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
+gpu_devices = tensorflow.config.experimental.list_physical_devices('GPU')
+tensorflow.config.experimental.set_memory_growth(gpu_devices[0], True)
+print("GPUs: " + gpus)
+
 gpus = tensorflow.test.gpu_device_name()
 print("GPUs: " + gpus)
 
