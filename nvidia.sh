@@ -10,4 +10,4 @@
 module load gcc/6.2.0
 module load cuda/10.0
 
-nvidia-smi
+~/nvida_samples/1_Utilities/deviceQuery/deviceQuery
