@@ -1,10 +1,9 @@
 #!/bin/bash
 
-#SBATCH -n 1
 #SBATCH -c 4
 #SBATCH -t 6:00:00
 #SBATCH -p gpu
-#SBATCH --gres=gpu:teslaK80:8
+#SBATCH --gres=gpu:teslaK80:2
 #SBATCH --mem-per-gpu=8G
 #SBATCH --mail-user=augustin_luna@hms.harvard.edu
 #SBATCH --mail-type=ALL
@@ -17,4 +16,4 @@ module load cuda/10.0
 
 asciinema rec tmp.rec
 pipenv run python mnist_cnn_gpu.py
-exit 
+exit
