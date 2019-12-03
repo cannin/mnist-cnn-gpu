@@ -5,6 +5,7 @@ from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras import backend as K
 
 import os
