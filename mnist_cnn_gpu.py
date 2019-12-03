@@ -7,9 +7,8 @@ from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras import backend as K
 
-#import os
-#os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-#K.tensorflow_backend._get_available_gpus()
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 gpus = tensorflow.test.gpu_device_name()
 print("GPUs: " + gpus)
@@ -61,11 +60,14 @@ model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
 
+best_check = ModelCheckpoint(filepath="model-best.h5", verbose=1, save_weights_only=True, save_best_only=True)
 model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
           verbose=1,
-          validation_data=(x_test, y_test))
+          validation_data=(x_test, y_test),
+          callbacks=[best_check])
+
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
