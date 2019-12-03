@@ -5,6 +5,7 @@
 #SBATCH -t 6:00:00
 #SBATCH -p gpu
 #SBATCH --gres=gpu:2
+#SBATCH --mem-per-gpu=8gb
 #SBATCH --mail-user=augustin_luna@hms.harvard.edu
 #SBATCH --mail-type=ALL
 #SBATCH -o log_%j.out
